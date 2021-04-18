@@ -1,0 +1,225 @@
+
+@import url("H_header.css");
+@import url("H_mainCommon.css");
+
+h2{
+    position: fixed;
+    width: 80%;
+    min-width: 800px;
+}
+#loglink{
+    font-size: 20px;
+}
+#customlink{
+    position: relative;
+    font-size: 15px;
+}
+#Mcontents{
+    /*position: fixed;*/
+    width: 100%;
+    min-width: 870px;
+    height: 600px;
+    top: 105px;
+    /*height: 100%;*/
+    display: flex;
+    flex-flow: row nowrap;
+    background: #fbfaf5;
+    border: 5px double #e6b422; 
+}
+
+#CandS{
+    /*position: absolute;*/
+    width: 80%;
+    /*background-color: blue;*/
+    /*background: #fbfaf5;*/
+    border-right: 2px solid #e6b422; 
+    flex: 4 1 80%;
+    
+    display: flex;
+    flex-flow: column nowrap;
+}
+    #card{
+        height: 110px;
+        /*background-color: green;*/
+        border-bottom: 2px solid #e6b422; 
+        flex: 1 1 auto;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+        .cards{
+            width: 70.5px;
+            height: 74.7px;
+            /*background-color: palegreen;*/
+            flex: 0 0 auto;
+        }
+    #status{
+        height: 100%;
+        /*background-color: greenyellow;*/
+        flex: 1 1 auto;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+        .statuses{
+            width: 140px;
+            height: 100%;
+            /*background-color: lawngreen;*/
+            background: #f5b1aa;
+            flex: 0 0 auto;
+            
+            font-size: 93%;
+        }
+        .select{
+            width: 40px;
+        }
+        
+        #card1_budy1, #card1_budy2, #card1_budy3,
+        #card2_budy1, #card2_budy2, #card2_budy3,
+        #card3_budy1, #card3_budy2, #card3_budy3,
+        #card4_budy1, #card4_budy2, #card4_budy3,
+        #card5_budy1, #card5_budy2, #card5_budy3{
+            display: block;
+            margin: 0 auto;
+        }
+        #card1_b1ty, #card1_b2ty, #card1_b3ty,
+        #card2_b1ty, #card2_b2ty, #card2_b3ty,
+        #card3_b1ty, #card3_b2ty, #card3_b3ty,
+        #card4_b1ty, #card4_b2ty, #card4_b3ty,
+        #card5_b1ty, #card5_b2ty, #card5_b3ty{
+            font-size: 12px;
+            text-align: center;
+        }
+        #card1_buf1_1Name, #card1_buf1_2Name, #card1_buf2_1Name, #card1_buf2_2Name, #card1_bufA1, #card1_bufA2,
+        #card2_buf1_1Name, #card2_buf1_2Name, #card2_buf2_1Name, #card2_buf2_2Name, #card2_bufA1, #card2_bufA2,
+        #card3_buf1_1Name, #card3_buf1_2Name, #card3_buf2_1Name, #card3_buf2_2Name, #card3_bufA1, #card3_bufA2,
+        #card4_buf1_1Name, #card4_buf1_2Name, #card4_buf2_1Name, #card4_buf2_2Name, #card4_bufA1, #card4_bufA2,
+        #card5_buf1_1Name, #card5_buf1_2Name, #card5_buf2_1Name, #card5_buf2_2Name, #card5_bufA1, #card5_bufA2{
+            font-size: 11px;
+        }
+        #TMagic{
+            width: 100%;
+            border-spacing: 0px 2px;
+        }
+        .TL{
+            width: 60px;
+        }
+        #card1_TMagic1 tr, #card2_TMagic1 tr, #card3_TMagic1 tr, #card4_TMagic1 tr, #card5_TMagic1 tr,
+        #card1_TMagic2 tr, #card2_TMagic2 tr, #card3_TMagic2 tr, #card4_TMagic2 tr, #card5_TMagic2 tr{
+            background: rgba(255,255,255,0.3);
+        }
+        
+        
+        
+
+#button{
+    /*position: absolute;*/
+    width: 20%;
+    /*background-color: yellow;*/
+    flex: 1 1 20%;
+}
+
+.contents{
+    width: 100%;
+    min-width: 800px;
+    height: 100%;
+    background-color: violet;
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.mcards{
+    margin: 30px;
+    width: 75px;
+    flex: 0 0 auto;
+    
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.text{
+    height: 1.5em;
+    width: 40px;
+    background: white;
+    border: 2px solid #e6b422; 
+}
+.text1{
+    height: 1.5em;
+    width: 40px;
+    background: #b3ada0;
+}
+.text2{
+    height: 1.5em;
+    width: 45px;
+    background: #b3ada0;
+}
+.hidden{
+    
+    display: none !important;
+}
+#overlay, #overlaySort{
+  /*　要素を重ねた時の順番　*/
+  z-index:1;
+  /*　画面全体を覆う設定　*/
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.5);
+}
+#overlay{
+    /*　画面の中央に要素を表示させる設定　*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#overlaySort{
+    /*　画面の中央に要素を表示させる設定　*/
+    position: fixed;
+}
+#modal{
+  z-index:2;
+  width:70%;
+  height: 70%;
+  overflow: scroll;
+  padding: 1em;
+  background-color: #fff;
+  position: absolute;
+}
+#modalSort{
+  z-index:2;
+  width:30%;
+  height: 40%;
+  padding: 1em;
+  background-color: #fff;
+  position: absolute;
+  top: 20%;
+  right: 5%;
+}
+
+#sortBtn{
+    background: #999;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+#ud{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.mcardsHidden{
+    display: none;
+    /*transform: translate(0px,-500px);*/
+}

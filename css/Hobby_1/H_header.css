@@ -1,0 +1,39 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    
+    background-color:green;
+    background-color: rgb(122,124,125);
+    z-index: 3;
+    
+}
+header div{
+    border-right: 15px solid black;    
+    
+    display: flex;
+    flex-flow: row nowrap;
+    
+}
+
+h1{
+    flex: 1 1 auto;
+    
+    font: normal 35px '游ゴシック',serif;
+    background-color: rgb(235,240,243);
+    
+    position: relative;
+}
+a{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+    font: normal 25px "游ゴシック",serif;
+    background-color: rgba(235,240,243,0);
+}

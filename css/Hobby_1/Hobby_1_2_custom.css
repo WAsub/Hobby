@@ -1,0 +1,91 @@
+
+@import url("H_header.css");
+@import url("H_mainCommon.css");
+
+#Btns{
+    position: fixed;
+    width: 80%;
+    min-width: 800px;
+    height: 30px;
+}
+h3{
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    background: #d8e697;
+    border: 2px solid #e6b422; 
+}
+#sortBtns{
+    width: 100px;
+    position: absolute;
+    right: 0px;
+}
+#sortBtn{
+    /*background: #999;*/
+    padding: 0.5px 1px;
+    margin: 3px 2px;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-left: solid 6px #180614;/*左線*/
+    font-size: 15px;
+    color: #180614;/*文字色*/
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+#con{
+    margin: 30px;
+}
+.mcards{
+    margin: 0;
+    width: 120px;
+    flex: 0 0 auto;
+    background: #e65322;
+    border: 2px solid #e6b422; 
+    
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.mdata{
+    height: 1.5em;
+    width: 40px;
+    flex: 0 0 auto;
+}
+.mdata20{
+    height: 1.5em;
+    width: 20px;
+    flex: 0 0 auto;
+}
+.hidden{    
+    display: none !important;
+}
+#overlaySort{
+  /*　要素を重ねた時の順番　*/
+  z-index:1;
+  /*　画面全体を覆う設定　*/
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.5);
+/*　画面の中央に要素を表示させる設定　*/
+    position: fixed;
+}
+#modalSort{
+  z-index:2;
+  width:30%;
+  height: 40%;
+  padding: 1em;
+  background-color: #fff;
+  position: absolute;
+  top: 20%;
+  right: 5%;
+}
+
+.mcardsHidden{
+    display: none;
+    /*transform: translate(0px,-500px);*/
+}

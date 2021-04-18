@@ -1,0 +1,24 @@
+
+@import url("Hobby_1/H_header.css");
+@import url("Hobby_1/H_mainCommon.css");
+
+a{
+    position: relative;
+    font-size: 18px;
+}
+#twst{
+    top:20px;left:20px;
+    padding: 7px 10px 10px 10px;
+    text-decoration: none;
+    color: #FFF;
+    background: #2ca9e1;
+    transition: .4s;
+}
+#twst:hover{
+    background: #91b5fb;
+    background:linear-gradient(to bottom, #4a488e 0%, #4d5aaf 35%,#ee7800 95%, #ee7800 100%);
+    
+}
+#twst span{
+    border-bottom: solid 2px #FFF;
+}

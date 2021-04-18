@@ -1,0 +1,10 @@
+
+#####wpcomment_nojpdeny#####
+#SetEnvIf Request_URI ".*" WpCommentDeny
+#####end:wpcomment_nojpdeny#####
+SetEnvIf Referer "^http://haveabook.php.xdomain.jp/" ok_url
+<Files ~ "Hobby_1_(2_custom|3_login|3_preRegister).php">
+	order deny,allow
+	deny from all
+	allow from env=ok_url
+</Files>
