@@ -190,7 +190,7 @@ class Hobby_1_2_customM{
             //     $this->cardData['b3lv'][$i] = $data[$i*10+10];
             // }
             var_dump("cardData//");
-            var_dump($this->postData);
+            var_dump($this->cardData);
         }         
     }
             
