@@ -23,8 +23,8 @@ function load(){
         document.getElementById("mcard"+i+"_b1lv").value = document.getElementById("mcard"+i+"_b1lvH").value;
         document.getElementById("mcard"+i+"_b2lv").value = document.getElementById("mcard"+i+"_b2lvH").value;
         document.getElementById("mcard"+i+"_b3lv").value = document.getElementById("mcard"+i+"_b3lvH").value;
-        console.log(document.getElementById("mcard"+i+"_lvH").value);
-        console.log(document.getElementById("mcard"+i+"_m1lvH").value);
+        // console.log(document.getElementById("mcard"+i+"_lvH").value);
+        // console.log(document.getElementById("mcard"+i+"_m1lvH").value);
     }    
 }
 
@@ -37,6 +37,8 @@ function sort(obj){
     };
     var data = [];
     for(var i = 0; i < len; i++){
+        var m1 = document.getElementById("mcard"+i+"_m1").src.split('/');
+        var m2 = document.getElementById("mcard"+i+"_m2").src.split('/');
         data[i] = {
             img_src : document.getElementById("mcard"+i).src ,
             img_alt : document.getElementById("mcard"+i).alt ,
@@ -45,8 +47,8 @@ function sort(obj){
             cd_lv :  parseInt(document.getElementById("mcard"+i+"_lv").value) ,
             cd_hp : parseInt(document.getElementById("mcard"+i+"_hp").value) ,
             cd_atk : parseInt(document.getElementById("mcard"+i+"_atk").value) ,
-            cd_m1_1 : magic[document.getElementById("mcard"+i+"_m1").src[52]] ,
-            cd_m2_1 : magic[document.getElementById("mcard"+i+"_m2").src[52]] ,
+            cd_m1 : magic[m1[m1.length-1][0]] ,
+            cd_m2 : magic[m2[m2.length-1][0]] ,
             cd_m1lv : document.getElementById("mcard"+i+"_m1lv").value ,
             cd_m2lv : document.getElementById("mcard"+i+"_m2lv").value ,
             cd_b1 : document.getElementById("mcard"+i+"_b1").src ,
@@ -70,8 +72,8 @@ function sort(obj){
         document.getElementById("mcard"+i+"_lv").value = data[i]["cd_lv"];
         document.getElementById("mcard"+i+"_hp").value = data[i]["cd_hp"];
         document.getElementById("mcard"+i+"_atk").value = data[i]["cd_atk"];
-        document.getElementById("mcard"+i+"_m1").src = "../img/Hobby_1/Element/"+magic[data[i]["cd_m1_1"]];
-        document.getElementById("mcard"+i+"_m2").src = "../img/Hobby_1/Element/"+magic[data[i]["cd_m2_1"]];
+        document.getElementById("mcard"+i+"_m1").src = "../img/Hobby_1/Element/"+magic[data[i]["cd_m1"]];
+        document.getElementById("mcard"+i+"_m2").src = "../img/Hobby_1/Element/"+magic[data[i]["cd_m2"]];
         document.getElementById("mcard"+i+"_m1lv").value = data[i]["cd_m1lv"];
         document.getElementById("mcard"+i+"_m2lv").value = data[i]["cd_m2lv"];
         document.getElementById("mcard"+i+"_b1").src = data[i]["cd_b1"];
