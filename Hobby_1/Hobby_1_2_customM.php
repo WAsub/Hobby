@@ -151,46 +151,37 @@ class Hobby_1_2_customM{
     }
     
     function DataPOST(){ // 更新データを配列に入れる
-        // var_dump("input//");
-        // var_dump(file_get_contents('php://input'));
         if(isset($_POST["submit"]) && $_POST["submit"] == "更新") {
-            $postdata = file_get_contents('php://input');
-            $i = 0;
-            foreach(explode('&', trim($postdata)) as $pd){
-                $D = explode('=', trim($pd));
-                $dataName = explode('_', trim($D[0]));
-                $dataNum = explode('mcard', trim($dataName[0]));
-                // $data = $D[1];
-                if($D[1] != $this->cardData[$dataName[1]][(int)$dataNum[1]]){
-                    $this->postData[$dataName[1]][] = $D[1];
+            /** リクエストボディを直接参照 
+             *  △△△△=○○○○&△△△△=○○○○&△△△△=○○○○&△△△△=○○○○ */
+            $input = file_get_contents('php://input');
+            $pieceData = array(); // 一人分のデータ避難用
+            $flg = false;
+            /** &で分割
+             *  △△△△=○○○○ △△△△=○○○○ △△△△=○○○○ △△△△=○○○○ */
+            foreach(explode('&', trim($input)) as $value){
+                /** =で分割
+                 *  △△△△ ○○○○ */
+                $DATA = explode('=', trim($value));
+                /** 一番最初の更新ボタンのデータはスキップ */
+                if($DATA[0] == "submit"){ continue;}
+                /** データ名から連想配列のキーと配列番号を抽出 */
+                $dataName = explode('_', trim($DATA[0]))[1];
+                $dataNum = explode('mcard', trim(explode('_', trim($DATA[0]))[0]))[1];
+                /** データが次のキャラに変わる時、前のキャラのデータが変更されていたらアップデート用の配列に追加 */
+                if($dataName == 'cdno' && $flg == true){
+                    foreach($pieceData as $key => $value){
+                        $this->postData[$key][] = $value;
+                    }
+                    $flg = false; // フラグを戻す
                 }
-                // $this->postData[$dataName[1]][] = $D[1] != $this->cardData[$dataName[1]][(int)$dataNum[1]] ? $D[1] : ;
-                // $this->cardData[$dataName[1]][(int)$dataNum[1]] = $D[1];
-                // if(i < 10){
-                //     var_dump("<br>");
-                // //     var_dump($D);
-                //     var_dump($dataNum);
-                // //     // var_dump($this->cardData['lv'][i]);
-                // //     // var_dump($this->cardData['a']);
-                //     var_dump("<br>");
-                // }
-                // $i++;
+                /** ひとまずここにデータを入れる */
+                $pieceData[$dataName] = $DATA[1];
+                /** データが変更されていたらflgをtrueにする */
+                if($DATA[1] != $this->cardData[$dataName][(int)$dataNum]){
+                    $flg = true;
+                }
             }
-            // var_dump("data//");
-            // var_dump($data);
-            // for($i = 0; $i < count($this->cardData['cdno']); $i++){
-            //     $this->cardData['cdno'][$i] = $data[$i*10+1];
-            //     $this->cardData['lv'][$i] = $data[$i*10+3];
-            //     $this->cardData['hp'][$i] = $data[$i*10+4];
-            //     $this->cardData['atk'][$i] = $data[$i*10+5];
-            //     $this->cardData['m1lv'][$i] = $data[$i*10+6];
-            //     $this->cardData['m2lv'][$i] = $data[$i*10+7];
-            //     $this->cardData['b1lv'][$i] = $data[$i*10+8];
-            //     $this->cardData['b2lv'][$i] = $data[$i*10+9];
-            //     $this->cardData['b3lv'][$i] = $data[$i*10+10];
-            // }
-            var_dump("cardData//");
-            var_dump($this->postData);
         }         
     }
             
