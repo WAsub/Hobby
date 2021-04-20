@@ -42,8 +42,11 @@ class Hobby_1_1_homeM{
     function customlink(){
         if($_SESSION['userID'] == ""){
             return '<a href="Hobby_1_2_custom.php" id="customlink" target="_blank">カードステータス閲覧</a>';
+        }else if($_SESSION['userID'] == "wakana"){ // 管理者
+            return '<a href="Hobby_1_2_custom.php" id="customlink">カードステータス編集</a><br>
+                    <a href="Hobby_1_4_add.php" id="customlink">カード追加</a>';
         }else{
-            return '<a href="Hobby_1_2_custom.php" id="customlink" target="_blank">カードステータス編集</a>';
+            return '<a href="Hobby_1_2_custom.php" id="customlink">カードステータス編集</a>';
         }
     }
     
