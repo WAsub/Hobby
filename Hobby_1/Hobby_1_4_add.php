@@ -1,8 +1,8 @@
 <?php
     session_start();
-    // require_once('Hobby_1_4_addM.php');
-    // $M = new Hobby_1_4_addM();
-    // $loginUser = $M->login(); // ログイン状況を把握
+    require_once('Hobby_1_4_addM.php');
+    $M = new Hobby_1_4_addM();
+    $loginUser = $M->login(); // ログイン状況を把握
 	
 ?>
 
@@ -23,7 +23,7 @@
             <br><br><br>
             <h2><?= $loginUser ?></h2><!-- ユーザ名表示 -->
             <form action="Hobby_1_4_add.php" method="post">
-                
+                <?php $M->addCard();?>
             </form>               
         </main>
         

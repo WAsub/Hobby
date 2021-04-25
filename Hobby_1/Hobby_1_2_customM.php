@@ -241,8 +241,9 @@ class Hobby_1_2_customM{
             . '<tr>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-cardlv id="mcard'.$i.'_lv" name="mcard'.$i.'_lv" '.$this->enabled().'></select-cardlv>'
-                . '<input id="mcard'.$i.'_lvH" type="hidden" value="'.$this->cardData['lv'][$i].'" '.$this->readonly().'>'
+                . '<select-lv id="mcard'.$i.'_lv" name="mcard'.$i.'_lv" 
+                    :seled="'.$this->cardData['lv'][$i].'" 
+                    :op="opCard" '.$this->enabled().'></select-lv>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
@@ -264,8 +265,9 @@ class Hobby_1_2_customM{
                 . '</td>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_m1lv" name="mcard'.$i.'_m1lv" '.$this->enabled().'></select-lv>'
-                . '<input id="mcard'.$i.'_m1lvH" type="hidden" value="'.$this->cardData['m1lv'][$i].'" maxlength="2"'.$this->readonly().'>'
+                . '<select-lv id="mcard'.$i.'_m1lv" name="mcard'.$i.'_m1lv" 
+                    :seled="'.$this->cardData['m1lv'][$i].'" 
+                    :op="opMagic" '.$this->enabled().'></select-lv>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
@@ -274,8 +276,9 @@ class Hobby_1_2_customM{
                 . '</td>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_m2lv" name="mcard'.$i.'_m2lv" '.$this->enabled().'></select-lv>'
-                . '<input id="mcard'.$i.'_m2lvH" type="hidden" value="'.$this->cardData['m2lv'][$i].'" '.$this->readonly().'>'
+                . '<select-lv id="mcard'.$i.'_m2lv" name="mcard'.$i.'_m2lv" 
+                    :seled="'.$this->cardData['m2lv'][$i].'" 
+                    :op="opMagic" '.$this->enabled().'></select-lv>'
                 . '</td>'
             . '</tr>'
             . '</table>';
@@ -289,16 +292,19 @@ class Hobby_1_2_customM{
             . '</tr>'
             . '<tr>'
                 . '<td>'
-                . 'Lv<select-lvzero id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" '.$this->enabled().'></select-lvzero>'
-                . '<input id="mcard'.$i.'_b1lvH" type="hidden" value="'.$this->cardData['b1lv'][$i].'">'
+                . '<select-lv id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" 
+                    :seled="'.$this->cardData['b1lv'][$i].'" 
+                    :op="opMagic" '.$this->enabled().'></select-lv>'
                 . '</td>'
                 . '<td>'
-                . 'Lv<select-lvzero id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" '.$this->enabled().'></select-lvzero>'
-                . '<input id="mcard'.$i.'_b2lvH" '.$this->hide($this->cardData['b2'][$i]).' type="hidden" value="'.$this->cardData['b2lv'][$i].'">'
+                . '<select-lv id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" 
+                    :seled="'.$this->cardData['b2lv'][$i].'" 
+                    :op="opMagic" '.$this->enabled().'></select-lv>'
                 . '</td>'
                 . '<td>'
-                . 'Lv<select-lvzero id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" '.$this->enabled().'></select-lvzero>'
-                . '<input id="mcard'.$i.'_b3lvH" '.$this->hide($this->cardData['b3'][$i]).' type="hidden" value="'.$this->cardData['b3lv'][$i].'">'
+                . '<select-lv id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" 
+                    :seled="'.$this->cardData['b3lv'][$i].'" 
+                    :op="opMagic" '.$this->enabled().'></select-lv>'
                 . '</td>'
             . '</tr>'
             . '</table>';

@@ -69,16 +69,12 @@
                         <label><input type="checkbox" class="filter3" value="0" onclick="sort(this)">持ってるやつ</label>
                     </div>
                 </div>
-            </form>    
-            
+            </form>     
         </main>
         
         <script type="text/javascript" src="../js/Hobby_1/Hobby_1_2_custom.js"></script>
         <script type="text/javascript" src="../js/Hobby_1/sort.js"></script>
         <script src="../lib/vue.js"></script> 
-        <script src="../js/Hobby_1/selectLv_vue.js"></script>
-        <script src="../js/Hobby_1/selectLv_vue2.js"></script>
-        <script src="../js/Hobby_1/selectCardLv_vue.js"></script>
-        <script> new Vue({ el: '.contents' });</script>
+        <script src="../js/Hobby_1/select-lv_vue.js"></script>
     </body>
 </html>

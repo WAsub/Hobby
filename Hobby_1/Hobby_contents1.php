@@ -3,73 +3,80 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>modalをcomponentで作</title>
+  <title>modalをcomponentで作る</title>
 </head>
-
-<style>
-#content{
-  z-index:10;
-  width:50%;
-  padding: 1em;
-  background:#fff;
-}
-
-#overlay{
-  /*　要素を重ねた時の順番　*/
-
-  z-index:1;
-
-  /*　画面全体を覆う設定　*/
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-color:rgba(0,0,0,0.5);
-
-  /*　画面の中央に要素を表示させる設定　*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-</style>
-
-<body onload="load()">
-  <div id="app" class="rr">
-
-    <!--<button v-on:click="openModal">Click</button>-->
-
-    <select-lv id="a1"></select-lv>
-    
+<body>
+  <div id="app">
+    <!-- <div>
+    <my-sel :value="name['a1']"></my-sel>
+    <my-sels 
+    :value="name['a3']"
+    :op="num2"
+    ></my-sels>
+    </div>
     
 
+    <p>selectsampleの値は「{{ name['a1'] }}」です。</p>
+    <input id="js-name1" type="hidden" value="hoge">
+    <input id="js-name2" type="hidden" value="fuga">
+    <input id="js-name3" type="hidden" value="3"> -->
+
+    <div id="con">
+    <input type="hidden" id="cardlen" value="1">
+    <select-lv id="mcard0_lv" name="mcard0_lv" :seled="8" :op="opCard"></select-lv>
+    <input id="mcard0_lvH" type="hidden" value="5">
+    </div>
   </div>
+  <script src="../lib/vue.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="../js/Hobby_1/selectCardLv_vue.js"></script>
+  <script>
+    // Vue.component('my-sel',{
+    //   props: ['value'],
+    //   template : `
+    //     <select v-model="value">
+    //     <option value="hoge">hoge</option>
+    //     <option value="fuga">fuga</option>
+    //     <option value="piyo">piyo</option>
+    //     </select>
+    //     `
+    // });
+    // Vue.component('my-sels',{
+    //   props: {
+    //     value: String,
+    //     op: Array
+    //   },
+    //   template : `
+    //     <select v-model="value">
+    //       <option v-for="option in op" v-bind:value="option">
+    //         {{ option }}
+    //       </option>
+    //     </select>
+    //     `
+    // });
+    // new Vue({
+    //   el: '#app',
+    //   data: function () {
+    //     var n = [];
+    //     var n2 = [];
+    //     for(var i = 0; i <= 10; i++){
+    //       n[i] = i;
+    //       n2[i] = i+1;
+    //     }
+    //     var w = {};
+    //     for(var i = 1; i <= 3; i++){
+    //       w['a'+i] = document.getElementById('js-name'+i).value;
+    //     }
+    //     return {
+    //       name: w,
+    //       num: n,
+    //       num2: n2
+    //     }
+    //   }
+    // })
 
-<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
-    <script>
-        function load(){
-        document.getElementById("a1").value = "3";
-        console.log(document.getElementById("a1").value);
-    }
-    </script>
-<script src="../lib/vue.js"></script> 
-<script>
-Vue.component('select-lv',{
-  template : `
-    <select>
-        <option value="1">1</option><option value="2">2</option>
-        <option value="3">3</option><option value="4">4</option>
-        <option value="5">5</option><option value="6">6</option>
-        <option value="7">7</option><option value="8">8</option>
-        <option value="9">9</option><option value="10">10</option>
-    </select>
-    `
-});
-new Vue({
-  el: '#app'
-  
-});
-</script> 
+
+  </script>
 </body>
 </html>

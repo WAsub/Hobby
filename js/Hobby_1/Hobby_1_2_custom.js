@@ -12,22 +12,6 @@ function clickCloseSortModal(){
     document.getElementById("modalSort").className = "hidden";
 }
 
-function load(){
-    console.log("OK");
-    var len = document.getElementById("cardlen").value;
-    console.log(len);
-    for(var i = 0; i < len; i++){
-        document.getElementById("mcard"+i+"_lv").value = document.getElementById("mcard"+i+"_lvH").value;
-        document.getElementById("mcard"+i+"_m1lv").value = document.getElementById("mcard"+i+"_m1lvH").value;
-        document.getElementById("mcard"+i+"_m2lv").value = document.getElementById("mcard"+i+"_m2lvH").value;
-        document.getElementById("mcard"+i+"_b1lv").value = document.getElementById("mcard"+i+"_b1lvH").value;
-        document.getElementById("mcard"+i+"_b2lv").value = document.getElementById("mcard"+i+"_b2lvH").value;
-        document.getElementById("mcard"+i+"_b3lv").value = document.getElementById("mcard"+i+"_b3lvH").value;
-        // console.log(document.getElementById("mcard"+i+"_lvH").value);
-        // console.log(document.getElementById("mcard"+i+"_m1lvH").value);
-    }    
-}
-
 function sort(obj){
     console.log("OK");
     var len = document.getElementById("cardlen").value;
