@@ -16,7 +16,7 @@
         <meta charset="UTF-8"><meta name = "authr" content="有本 和奏">
         <link href="../css/Hobby_1/Hobby_1_2_custom.css" rel="stylesheet" type="text/css">
     </head>
-    <body onload="load()">
+    <body>
         <header>
             <div>
                 <h1>ツイステカード編成ツール<a href="../Hobby_1/Hobby_1_1_home.php" id="homelink">ホームへ戻る</a></h1>

@@ -241,9 +241,9 @@ class Hobby_1_2_customM{
             . '<tr>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_lv" name="mcard'.$i.'_lv" 
+                . '<select-own id="mcard'.$i.'_lv" name="mcard'.$i.'_lv" 
                     :seled="'.$this->cardData['lv'][$i].'" 
-                    :op="opCard" '.$this->enabled().'></select-lv>'
+                    :op="opCard" '.$this->enabled().'></select-own>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
@@ -265,9 +265,9 @@ class Hobby_1_2_customM{
                 . '</td>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_m1lv" name="mcard'.$i.'_m1lv" 
+                . '<select-own id="mcard'.$i.'_m1lv" name="mcard'.$i.'_m1lv" 
                     :seled="'.$this->cardData['m1lv'][$i].'" 
-                    :op="opMagic" '.$this->enabled().'></select-lv>'
+                    :op="opMagic" '.$this->enabled().'></select-own>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
@@ -276,9 +276,9 @@ class Hobby_1_2_customM{
                 . '</td>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_m2lv" name="mcard'.$i.'_m2lv" 
+                . '<select-own id="mcard'.$i.'_m2lv" name="mcard'.$i.'_m2lv" 
                     :seled="'.$this->cardData['m2lv'][$i].'" 
-                    :op="opMagic" '.$this->enabled().'></select-lv>'
+                    :op="opMagic" '.$this->enabled().'></select-own>'
                 . '</td>'
             . '</tr>'
             . '</table>';
@@ -292,19 +292,19 @@ class Hobby_1_2_customM{
             . '</tr>'
             . '<tr>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" 
+                . '<select-own id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" 
                     :seled="'.$this->cardData['b1lv'][$i].'" 
-                    :op="opMagic" '.$this->enabled().'></select-lv>'
+                    :op="opMagic" '.$this->enabled().'></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" 
+                . '<select-own id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" 
                     :seled="'.$this->cardData['b2lv'][$i].'" 
-                    :op="opMagic" '.$this->enabled().'></select-lv>'
+                    :op="opMagic" '.$this->enabled().'></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" 
+                . '<select-own id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" 
                     :seled="'.$this->cardData['b3lv'][$i].'" 
-                    :op="opMagic" '.$this->enabled().'></select-lv>'
+                    :op="opMagic" '.$this->enabled().'></select-own>'
                 . '</td>'
             . '</tr>'
             . '</table>';
