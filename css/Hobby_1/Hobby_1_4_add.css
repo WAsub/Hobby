@@ -1,3 +1,32 @@
 
 @import url("H_header.css");
 @import url("H_mainCommon.css");
+#con{
+    margin: 30px;
+}
+.mcards{
+    margin: 0;
+    width: auto;
+    flex: 0 0 auto;
+    background: #e65322;
+    border: 2px solid #e6b422; 
+    
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.mdata{
+    height: 1.5em;
+    width: 40px;
+    flex: 0 0 auto;
+}
+.mdata20{
+    height: 1.5em;
+    width: 20px;
+    flex: 0 0 auto;
+}
+td{
+	background: #009900;
+}

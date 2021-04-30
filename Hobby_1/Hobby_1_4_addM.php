@@ -6,12 +6,44 @@ define('PASS', 'waka7ari');
 define('DB', 'haveabook_db');
 		
 class Hobby_1_4_addM{
+    private $cardData = array(
+        'cdno' =>array(), 
+        'chno' =>array(), 
+        'img'  =>array(), 
+        'lv' =>array(), 
+        'hp' =>array(), 
+        'atk'  =>array(), 
+        'm1' =>array(), 
+        'm2'  =>array(), 
+        'm1buf' =>array(), 
+        'm2buf' =>array(), 
+        'm1lv'  =>array(), 
+        'm2lv' =>array(), 
+        'b1' =>array(), 
+        'b2'  =>array(), 
+        'b3' =>array(), 
+        'b1type' =>array(), 
+        'b2type'  =>array(), 
+        'b3type' =>array(), 
+        'b1lv' =>array(), 
+        'b2lv'  =>array(), 
+        'b3lv'  =>array()
+    );
+    function login(){ // ログイン状況を把握
+        if($_SESSION['userID'] != "" && $_SESSION['myTB'] != ""){ // ユーザーがログインしていたらそのままユーザー名を返す
+            return 'ユーザーID:'.$_SESSION['userID'];
+        }
+        // 誰もログインしていなかったらMAXデータを設定してユーザー名を返す
+        $_SESSION['myTB'] = "H1_2_DefaultDataMax";
+        return 'ユーザーID:'.$_SESSION['userID'];
+    }
+
     function addCard(){ // カードデータを表示
         $Dormitory = array("","Heartslabyul","Savanaclaw","Octavinelle","Scarabia","Pomefiore","Ignihyde","Diasomnia");        
             for($i = 0; $i < 4; $i++){
                 print '<div class="mcards">';
                 /** 写真ファイルアップロード用 */
-                print     '<img src="../img/Hobby_1/'.$Dormitory[(int)$this->cardData['chno'][$i]/10].'/'.$this->cardData['img'][$i].'" alt="'.$this->cardData['chno'][$i].'" width="70.5" height="74.7" id="mcard'.$i.'">';
+                print     '<img src="../img/Hobby_1/none.jpg" alt="" width="70.5" height="74.7" id="mcard'.$i.'">';
                 /** Lv HP ATK */
                 $this->statusBasics($i);
                 /** 魔法関連 */
@@ -20,11 +52,11 @@ class Hobby_1_4_addM{
                 $this->statusBuddy($i);
                 print '</div>';
             }
-        print     '<input type="hidden" id="cardlen" value="'.count($this->cardData['cdno']).'">';
     }
     function statusBasics($i){
         print '<table border="0" id="THpAtk">'
             . '<tr>'
+                . '<td></td>'
                 . '<td>Lv1</td>'
                 . '<td>無凸MAX</td>'
                 . '<td>LvMAX</td>'
@@ -32,25 +64,32 @@ class Hobby_1_4_addM{
             . '<tr>'
                 . '<td>Lv</td>'
                 . '<td>'
-                . '<select-cardlv id="mcard'.$i.'_lv_one" name="mcard'.$i.'_lv_one" disabled></select-cardlv>'
-                . '<input id="mcard'.$i.'_lvH" type="hidden" value="'.$this->cardData['lv'][$i].'" '.$this->readonly().'>'
+                . '<select-own id="mcard'.$i.'_lv_one" name="mcard'.$i.'_lv_one" 
+                    :seled="1" 
+                    :op="opAddCard"></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-cardlv id="mcard'.$i.'_lv_middle" name="mcard'.$i.'_lv_middle"></select-cardlv>'
-                . '<input id="mcard'.$i.'_lvH" type="hidden" value="'.$this->cardData['lv'][$i].'" '.$this->readonly().'>'
+                . '<select-own id="mcard'.$i.'_lv_middle" name="mcard'.$i.'_lv_middle" 
+                    :seled="80" 
+                    :op="opAddCard"></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-cardlv id="mcard'.$i.'_lv_max" name="mcard'.$i.'_lv_max"></select-cardlv>'
-                . '<input id="mcard'.$i.'_lvH" type="hidden" value="'.$this->cardData['lv'][$i].'" '.$this->readonly().'>'
+                . '<select-own id="mcard'.$i.'_lv_max" name="mcard'.$i.'_lv_max" 
+                    :seled="100" 
+                    :op="opAddCard"></select-own>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
                 . '<td>HP</td>'
-                . '<td><input type="text" class="mdata" name="mcard'.$i.'_hp" id="mcard'.$i.'_hp" value="'.$this->cardData['hp'][$i].'" maxlength="5"'.$this->readonly().'></td>'
+                . '<td><input type="text" class="mdata" name="mcard'.$i.'_hp_one" id="mcard'.$i.'_hp_one" value="'.$this->cardData['hp'][$i].'" maxlength="5"></td>'
+                . '<td><input type="text" class="mdata" name="mcard'.$i.'_hp_middle" id="mcard'.$i.'_hp_middle" value="'.$this->cardData['hp'][$i].'" maxlength="5"></td>'
+                . '<td><input type="text" class="mdata" name="mcard'.$i.'_hp_max" id="mcard'.$i.'_hp_max" value="'.$this->cardData['hp'][$i].'" maxlength="5"></td>'
             . '</tr>'
             . '<tr>'
                 . '<td>ATK</td>'
-                . '<td><input type="text" class="mdata" name="mcard'.$i.'_atk" id="mcard'.$i.'_atk" value="'.$this->cardData['atk'][$i].'" maxlength="5"'.$this->readonly().'></td>'
+                . '<td><input type="text" class="mdata" name="mcard'.$i.'_atk_one" id="mcard'.$i.'_atk_one" value="'.$this->cardData['atk'][$i].'" maxlength="5"></td>'
+                . '<td><input type="text" class="mdata" name="mcard'.$i.'_atk_middle" id="mcard'.$i.'_atk_middle" value="'.$this->cardData['atk'][$i].'" maxlength="5"></td>'
+                . '<td><input type="text" class="mdata" name="mcard'.$i.'_atk_max" id="mcard'.$i.'_atk_max" value="'.$this->cardData['atk'][$i].'" maxlength="5"></td>'
             . '</tr>'
             . '</table>';
     }
@@ -58,23 +97,85 @@ class Hobby_1_4_addM{
         $Element = array("Nomal.jpg","Fire.jpg","Tree.jpg","Water.jpg");
         print '<table border="0" id="THpAtk">'
             . '<tr>'
-                . '<td>'
-                . '<img id="mcard'.$i.'_m1" src="../img/Hobby_1/Element/'.$Element[substr($this->cardData['m1'][$i],0,1)].'" alt="" width="20" height="20">'
+                . '<td></td>'
+                . '<td>属性</td>'
+                . '<td>連撃</td>'
+                . '<td>強弱</td>'
+                . '<td>追加効果</td>'
+            . '</tr>'
+            . '<tr>'
+                . '<td>Lv1</td>'
+                . '<td rowspan="3">'
+
                 . '</td>'
-                . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_m1lv" name="mcard'.$i.'_m1lv" '.$this->enabled().'></select-lv>'
-                . '<input id="mcard'.$i.'_m1lvH" type="hidden" value="'.$this->cardData['m1lv'][$i].'" maxlength="2"'.$this->readonly().'>'
+                . '<select-own id="mcard'.$i.'_m1_times_one" name="mcard'.$i.'_m1_times_one" 
+                    :seled="1" 
+                    :op="opAddM_timas"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_m1_power_one" name="mcard'.$i.'_m1_power_one" 
+                    :seled="opAddM_power[0].value" 
+                    :op="opAddM_power"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_m1_ef1_one" name="mcard'.$i.'_m1_ef1_one" 
+                    :seled="opAddM_effect1[0].value" 
+                    :op="opAddM_effect1"></select-own>'
+                . '<select-own id="mcard'.$i.'_m1_ef2_one" name="mcard'.$i.'_m1_ef2_one" 
+                    :seled="opAddM_effect2[0].value" 
+                    :op="opAddM_effect2"></select-own>'
+                . '<select-own id="mcard'.$i.'_m1_ef3_one" name="mcard'.$i.'_m1_ef3_one" 
+                    :seled="1" 
+                    :op="opAddM_effect3"></select-own>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
+                . '<td>Lv5</td>'
                 . '<td>'
-                . '<img id="mcard'.$i.'_m2" src="../img/Hobby_1/Element/'.$Element[substr($this->cardData['m2'][$i],0,1)].'" alt="" width="20" height="20">'
+                . '<select-own id="mcard'.$i.'_m1_times_five" name="mcard'.$i.'_m1_times_five" 
+                    :seled="1" 
+                    :op="opAddM_timas"></select-own>'
                 . '</td>'
-                . '<td>Lv</td>'
                 . '<td>'
-                . '<select-lv id="mcard'.$i.'_m2lv" name="mcard'.$i.'_m2lv" '.$this->enabled().'></select-lv>'
-                . '<input id="mcard'.$i.'_m2lvH" type="hidden" value="'.$this->cardData['m2lv'][$i].'" '.$this->readonly().'>'
+                . '<select-own id="mcard'.$i.'_m1_power_five" name="mcard'.$i.'_m1_power_five" 
+                    :seled="opAddM_power[0].value" 
+                    :op="opAddM_power"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_m1_ef1_five" name="mcard'.$i.'_m1_ef1_five" 
+                    :seled="opAddM_effect1[0].value" 
+                    :op="opAddM_effect1"></select-own>'
+                . '<select-own id="mcard'.$i.'_m1_ef2_five" name="mcard'.$i.'_m1_ef2_five" 
+                    :seled="opAddM_effect2[0].value" 
+                    :op="opAddM_effect2"></select-own>'
+                . '<select-own id="mcard'.$i.'_m1_ef3_five" name="mcard'.$i.'_m1_ef3_five" 
+                    :seled="1" 
+                    :op="opAddM_effect3"></select-own>'
+                . '</td>'
+            . '</tr>'
+            . '<tr>'
+                . '<td>Lv10</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_m1_times_ten" name="mcard'.$i.'_m1_times_ten" 
+                    :seled="1" 
+                    :op="opAddM_timas"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_m1_power_ten" name="mcard'.$i.'_m1_power_ten" 
+                    :seled="opAddM_power[0].value" 
+                    :op="opAddM_power"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_m1_ef1_ten" name="mcard'.$i.'_m1_ef1_ten" 
+                    :seled="opAddM_effect1[0].value" 
+                    :op="opAddM_effect1"></select-own>'
+                . '<select-own id="mcard'.$i.'_m1_ef2_ten" name="mcard'.$i.'_m1_ef2_ten" 
+                    :seled="opAddM_effect2[0].value" 
+                    :op="opAddM_effect2"></select-own>'
+                . '<select-own id="mcard'.$i.'_m1_ef3_ten" name="mcard'.$i.'_m1_ef3_ten" 
+                    :seled="1" 
+                    :op="opAddM_effect3"></select-own>'
                 . '</td>'
             . '</tr>'
             . '</table>';
@@ -82,22 +183,36 @@ class Hobby_1_4_addM{
     function statusBuddy($i){
         print '<table border="0">'
             . '<tr>'
-                . '<td><img id="mcard'.$i.'_b1" src="../img/Hobby_1/Another/'.$this->cardData['b1'][$i].'.jpg" alt="" width="30" height="30"></td>'
-                . '<td><img id="mcard'.$i.'_b2" '.$this->hide($this->cardData['b2'][$i]).' src="../img/Hobby_1/Another/'.$this->cardData['b2'][$i].'.jpg" alt="" width="30" height="30"></td>'
-                . '<td><img id="mcard'.$i.'_b3" '.$this->hide($this->cardData['b3'][$i]).' src="../img/Hobby_1/Another/'.$this->cardData['b3'][$i].'.jpg" alt="" width="30" height="30"></td>'
+                . '<td><img id="mcard'.$i.'_b1" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30"></td>'
+                . '<td><img id="mcard'.$i.'_b2" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30"></td>'
+                . '<td><img id="mcard'.$i.'_b3" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30"></td>'
             . '</tr>'
             . '<tr>'
                 . '<td>'
-                . 'Lv<select-lvzero id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" '.$this->enabled().'></select-lvzero>'
-                . '<input id="mcard'.$i.'_b1lvH" type="hidden" value="'.$this->cardData['b1lv'][$i].'">'
+                . '<select-own id="mcard'.$i.'_b1_1" name="mcard'.$i.'_b1_1" 
+                    :op="opAddB"></select-own>'
                 . '</td>'
                 . '<td>'
-                . 'Lv<select-lvzero id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" '.$this->enabled().'></select-lvzero>'
-                . '<input id="mcard'.$i.'_b2lvH" '.$this->hide($this->cardData['b2'][$i]).' type="hidden" value="'.$this->cardData['b2lv'][$i].'">'
+                . '<select-own id="mcard'.$i.'_b2_1" name="mcard'.$i.'_b2_1" 
+                    :op="opAddB"></select-own>'
                 . '</td>'
                 . '<td>'
-                . 'Lv<select-lvzero id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" '.$this->enabled().'></select-lvzero>'
-                . '<input id="mcard'.$i.'_b3lvH" '.$this->hide($this->cardData['b3'][$i]).' type="hidden" value="'.$this->cardData['b3lv'][$i].'">'
+                . '<select-own id="mcard'.$i.'_b3_1" name="mcard'.$i.'_b3_1" 
+                    :op="opAddB"></select-own>'
+                . '</td>'
+            . '</tr>'
+            . '<tr>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_b1_2" name="mcard'.$i.'_b1_2" 
+                    :op="opAddB"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_b2_2" name="mcard'.$i.'_b2_2" 
+                    :op="opAddB"></select-own>'
+                . '</td>'
+                . '<td>'
+                . '<select-own id="mcard'.$i.'_b2_3" name="mcard'.$i.'_b2_3" 
+                    :op="opAddB"></select-own>'
                 . '</td>'
             . '</tr>'
             . '</table>';
