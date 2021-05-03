@@ -23,17 +23,20 @@
             <br><br><br>
             <h2><?= $loginUser ?></h2><!-- ユーザ名表示 -->
             <form action="Hobby_1_4_add.php" method="post">
-                <div id="con"><!-- カード表示 -->
-                    <?php
-                        $M->addCard();
-                    ?>
+                <div class="contents">
+                    <div id="con"><!-- カード表示 -->
+                        <?php $M->addCard(); ?>
+                    </div>
                 </div>
             </form>               
         </main>
         
         <!-- <script type="text/javascript" src="../js/Hobby_1/Hobby_1_2_custom.js"></script> -->
-        <script type="text/javascript" src="../js/Hobby_1/sort.js"></script>
+        <!-- <script type="text/javascript" src="../js/Hobby_1/sort.js"></script>
         <script src="../lib/vue.js"></script> 
-        <script src="../js/Hobby_1/select-lv_vue.js"></script>
+        <script src="../js/Hobby_1/select-lv_vue.js"></script> -->
+        <script src="../lib/vue.js"></script> 
+        <script src="https://unpkg.com/http-vue-loader"></script>
+        <script src="../js/Hobby_1/Hobby_1_4_add.js"></script>
     </body>
 </html>

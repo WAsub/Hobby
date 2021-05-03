@@ -1,15 +1,21 @@
 
 @import url("H_header.css");
 @import url("H_mainCommon.css");
+main{
+    min-width: 840px;
+}
+.contents{
+    min-width: 840px;
+}
 #con{
-    margin: 30px;
+    margin: 10px;
 }
 .mcards{
     margin: 0;
     width: auto;
     flex: 0 0 auto;
-    background: #e65322;
-    border: 2px solid #e6b422; 
+    background: #f3f3f3;
+    border: 2px solid #ffffff; 
     
     display: inline-flex;
     flex-flow: column nowrap;
@@ -17,7 +23,14 @@
     align-items: flex-start;
     align-content: flex-start;
 }
-.mdata{
+input{
+	height: 1.5em;
+    width: 100px;
+}
+p{
+	line-height: 1em;
+}
+/* .mdata{
     height: 1.5em;
     width: 40px;
     flex: 0 0 auto;
@@ -26,7 +39,17 @@
     height: 1.5em;
     width: 20px;
     flex: 0 0 auto;
+} */
+table{
+	margin-top: 5px;
+	width: 405px;
+}
+th{
+	width: 32px;
+	font-weight: normal;
+	background: rgba(97,83,78, 0.6);
 }
 td{
-	background: #009900;
+	width: 121px;
+	background: rgba(97,83,78, 0.6);
 }

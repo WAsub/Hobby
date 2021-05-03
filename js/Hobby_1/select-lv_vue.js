@@ -1,16 +1,30 @@
-Vue.component('select-own',{
-	props: {
-	  seled: {default:()=>[]},
-	  op: null
-	},
-	template : `
-	  <select v-model="seled">
-		<option v-for="option in op" v-bind:value="option.value">
-		  {{ option.key }}
-		</option>
-	  </select>
-	  `
-  });
+Vue.component(
+	'select-own',{
+		props: {
+			seled: {default:()=>[]},
+			op: null
+		},
+		template : `
+		<select v-model="seled">
+			<option v-for="option in op" v-bind:value="option.value">
+			{{ option.key }}
+			</option>
+		</select>
+		`
+	}
+);
+Vue.component(
+	'img-own',{
+		props: {
+			seled: {default:()=>[]},
+			op: null
+		},
+		template : `
+			<img src="../img/Hobby_1/none.jpg" alt="" width="30" height="30">
+			<input type="hidden" value="">
+		`
+	}//onclick 
+);
   new Vue({
 	el: '#con',
 	data: function () {
@@ -34,8 +48,8 @@ Vue.component('select-own',{
 			{key: "火ﾀﾞﾒｰｼﾞ UP", value: "fu"}, {key: "木ﾀﾞﾒｰｼﾞ UP", value: "tu"}, {key: "水ﾀﾞﾒｰｼﾞ UP", value: "wu"}, {key: "無ﾀﾞﾒｰｼﾞ UP", value: "nu"},
 			{key: "回避", value: "ev"}, {key: "呪い", value: "cu"}, {key: "デュオ魔法", value: "DU"}
 		],
-		opAddM_effect2: [{key: "極小", value: "s"}, {key: "小", value: "S"}, {key: "中", value: "M"}, {key: "大", value: "L"}],
-		opAddM_effect3: [{key: "1T", value: "1"}, {key: "2T", value: "2"}, {key: "3T", value: "3"}],
+		opAddM_effect2: [{key: "**", value: ""},{key: "極小", value: "s"}, {key: "小", value: "S"}, {key: "中", value: "M"}, {key: "大", value: "L"}],
+		opAddM_effect3: [{key: "**", value: ""},{key: "1T", value: "1"}, {key: "2T", value: "2"}, {key: "3T", value: "3"}],
 		opAddB:[{key: "***", value: ""},{key: "ATK UP(中)", value: "Am"}, {key: "ATK UP(小)", value: "As"}, {key: "HP UP(中)", value: "Hm"}, {key: "HP UP(小)", value: "Hs"}]
 	  }
 	}
