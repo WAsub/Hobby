@@ -30,16 +30,6 @@ input{
 p{
 	line-height: 1em;
 }
-/* .mdata{
-    height: 1.5em;
-    width: 40px;
-    flex: 0 0 auto;
-}
-.mdata20{
-    height: 1.5em;
-    width: 20px;
-    flex: 0 0 auto;
-} */
 table{
 	margin-top: 5px;
 	width: 405px;
@@ -52,4 +42,17 @@ th{
 td{
 	width: 121px;
 	background: rgba(97,83,78, 0.6);
+}
+.Bimg{
+    position: relative;
+    height: 40px;
+}
+.effect{
+    height: 70px;
+    vertical-align: top;
+}
+.duoimg{
+    position: relative;
+    height: 30px;
+	width: 30px;
 }

@@ -10,61 +10,24 @@
 </head>
 
 <body>
-  <form method="post" action="Hobby_contents1.php" enctype="multipart/form-data">
-    <!-- <label for="inputfile">
-      <img id="preview2" src="../img/Hobby_1/none.jpg" width="100" height="100">
-      <input type="file" id="inputfile" accept='image/*' onchange="previewImage(this);">
-    </label> -->
-    <input type="file"name="fnamer" accept='image/*' >
-      
     <div id="con">
-    <input-file-own :id="'fname1'" :name="'fname1'"></input-file-own>
-    <input-file-own :id="'fname2'" :name="'fname2'"></input-file-own>
-    <?php
-    $i = 1;
-    print     '<input-file-own :id="\'mcard'.$i.'\'" :name="\'mcard'.$i.'\'"></input-file-own>';
-    ?>
+    <!-- <choice-modal-img></choice-modal-img> -->
+
+    <br>
+    <img-select></img-select>
     </div>
-    <input type="submit" value="アップロード">
-  </form>
-  <?php
-    $tempfile1 = $_FILES['fname1']['tmp_name']; // 一時ファイル名
-    $filename1 = '../img/Hobby_1/'.$_FILES['fname1']['name']; // 本来のファイル名
-    $tempfile2 = $_FILES['fname2']['tmp_name']; // 一時ファイル名
-    $filename2 = '../img/Hobby_1/'.$_FILES['fname2']['name']; // 本来のファイル名
-    var_dump($_FILES);
-    if (is_uploaded_file($tempfile1)) {
-        if ( move_uploaded_file($tempfile1 , $filename1 )) {
-      echo $filename1 . "をアップロードしました。";
-        } else {
-            echo "ファイルをアップロードできません。";
-        }
-    } else {
-        echo "ファイルが選択されていません。";
-    } 
-    if (is_uploaded_file($tempfile2)) {
-        if ( move_uploaded_file($tempfile2 , $filename2 )) {
-      echo $filename2 . "をアップロードしました。";
-        } else {
-            echo "ファイルをアップロードできません。";
-        }
-    } else {
-        echo "ファイルが選択されていません。";
-    } 
-  ?>
 
-
-  <script>
-  new Vue({
-    el: "#con",
-    components: {
-      'select-own': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/select-own.vue'),
-      'choice-modal-img': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/choice-modal-img.vue'),
-      'img-select': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/img-select.vue'),
-      'input-file-own': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/input-file-own.vue'),
-    }
-  });
-  </script>
+    <script>
+    new Vue({
+      el: "#con",
+      components: {
+        'select-own': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/select-own.vue'),
+        'choice-modal-img': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/choice-modal-img.vue'),
+        'img-select': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/img-select.vue'),
+        'input-file-own': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/input-file-own.vue'),
+      }
+    });
+    </script>
   
 </body>
 

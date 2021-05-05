@@ -48,8 +48,8 @@ class Hobby_1_4_addM{
                 /** Lv HP ATK */
                 $this->statusBasics($i, $Lv[$i]);
                 /** 魔法関連 */
-                $this->statusMagic($i, "M1");
-                $this->statusMagic($i, "M2");
+                $this->statusMagic($i, "1");
+                $this->statusMagic($i, "2");
                 /** バディ関連 */
                 $this->statusBuddy($i);
                 print '</div>';
@@ -99,7 +99,7 @@ class Hobby_1_4_addM{
         $Element = array("Nomal.jpg","Fire.jpg","Tree.jpg","Water.jpg");
         print '<table border="0" id="THpAtk">'
             . '<tr>'
-                . '<th>'.$M.'</th>'
+                . '<th>M'.$M.'</th>'
                 . '<td>Lv1</td>'
                 . '<td>Lv5</td>'
                 . '<td>Lv10</td>'
@@ -113,17 +113,17 @@ class Hobby_1_4_addM{
             . '<tr>'
                 . '<th>連撃</th>'
                 . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_times_one" name="mcard'.$i.'_m1_times_one" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_times_one" name="mcard'.$i.'_m'.$M.'_times_one" 
                     :initial="1" 
                     :op="\'opAddM_timas\'"></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_times_five" name="mcard'.$i.'_m1_times_five" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_times_five" name="mcard'.$i.'_m'.$M.'_times_five" 
                     :initial="1" 
                     :op="\'opAddM_timas\'"></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_times_ten" name="mcard'.$i.'_m1_times_ten" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_times_ten" name="mcard'.$i.'_m'.$M.'_times_ten" 
                     :initial="1" 
                     :op="\'opAddM_timas\'"></select-own>'
                 . '</td>'
@@ -131,52 +131,52 @@ class Hobby_1_4_addM{
             . '<tr>'
                 . '<th>強弱</th>'
                 . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_power_one" name="mcard'.$i.'_m1_power_one" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_power_one" name="mcard'.$i.'_m'.$M.'_power_one" 
                     :initial="\'S\'" 
                     :op="\'opAddM_power\'"></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_power_five" name="mcard'.$i.'_m1_power_five" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_power_five" name="mcard'.$i.'_m'.$M.'_power_five" 
                     :initial="\'S\'" 
                     :op="\'opAddM_power\'"></select-own>'
                 . '</td>'
                 . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_power_ten" name="mcard'.$i.'_m1_power_ten" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_power_ten" name="mcard'.$i.'_m'.$M.'_power_ten" 
                     :initial="\'S\'" 
                     :op="\'opAddM_power\'"></select-own>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
                 . '<th><p>追加効果</p></th>'
-                . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_ef1_one" name="mcard'.$i.'_m1_ef1_one" 
+                . '<td class="effect">'
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef1_one" name="mcard'.$i.'_m'.$M.'_ef1_one" 
                     :initial="\'nN\'" 
                     :op="\'opAddM_effect1\'"></select-own><br>'
-                . '<select-own id="mcard'.$i.'_m1_ef2_one" name="mcard'.$i.'_m1_ef2_one" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef2_one" name="mcard'.$i.'_m'.$M.'_ef2_one" 
                     :op="\'opAddM_effect2\'"></select-own>'
-                . '<select-own id="mcard'.$i.'_m1_ef3_one" name="mcard'.$i.'_m1_ef3_one" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef3_one" name="mcard'.$i.'_m'.$M.'_ef3_one" 
                     :op="\'opAddM_effect3\'"></select-own>'
-                . '<img id="mcard'.$i.'_DUO1" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30">'
+                . '<span class="duoimg"><img-select :id="\'mcard'.$i.'_m'.$M.'_duo_one\'"></img-select></span>'
                 . '</td>'
-                . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_ef1_five" name="mcard'.$i.'_m1_ef1_five" 
+                . '<td class="effect">'
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef1_five" name="mcard'.$i.'_m'.$M.'_ef1_five" 
                     :initial="\'nN\'" 
                     :op="\'opAddM_effect1\'"></select-own><br>'
-                . '<select-own id="mcard'.$i.'_m1_ef2_five" name="mcard'.$i.'_m1_ef2_five" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef2_five" name="mcard'.$i.'_m'.$M.'_ef2_five" 
                     :op="\'opAddM_effect2\'"></select-own>'
-                . '<select-own id="mcard'.$i.'_m1_ef3_five" name="mcard'.$i.'_m1_ef3_five" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef3_five" name="mcard'.$i.'_m'.$M.'_ef3_five" 
                     :op="\'opAddM_effect3\'"></select-own>'
-                . '<img id="mcard'.$i.'_DUO2" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30">'
+                . '<span class="duoimg"><img-select :id="\'mcard'.$i.'_m'.$M.'_duo_five\'"></img-select></span>'
                 . '</td>'
-                . '<td>'
-                . '<select-own id="mcard'.$i.'_m1_ef1_ten" name="mcard'.$i.'_m1_ef1_ten" 
+                . '<td class="effect">'
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef1_ten" name="mcard'.$i.'_m'.$M.'_ef1_ten" 
                     :initial="\'nN\'" 
                     :op="\'opAddM_effect1\'"></select-own><br>'
-                . '<select-own id="mcard'.$i.'_m1_ef2_ten" name="mcard'.$i.'_m1_ef2_ten" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef2_ten" name="mcard'.$i.'_m'.$M.'_ef2_ten" 
                     :op="\'opAddM_effect2\'"></select-own>'
-                . '<select-own id="mcard'.$i.'_m1_ef3_ten" name="mcard'.$i.'_m1_ef3_ten" 
+                . '<select-own id="mcard'.$i.'_m'.$M.'_ef3_ten" name="mcard'.$i.'_m'.$M.'_ef3_ten" 
                     :op="\'opAddM_effect3\'"></select-own>'
-                . '<img id="mcard'.$i.'_DUO3" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30">'
+                . '<span class="duoimg"><img-select :id="\'mcard'.$i.'_m'.$M.'_duo_ten\'"></img-select></span>'
                 . '</td>'
             . '</tr>'
             . '</table>';
@@ -184,9 +184,9 @@ class Hobby_1_4_addM{
     function statusBuddy($i){
         print '<table border="0">'
             . '<tr>'
-                . '<td><img id="mcard'.$i.'_b1" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30"></td>'
-                . '<td><img id="mcard'.$i.'_b2" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30"></td>'
-                . '<td><img id="mcard'.$i.'_b3" src="../img/Hobby_1/none.jpg" alt="" width="30" height="30"></td>'
+                . '<td class="Bimg"><img-select :id="\'mcard'.$i.'_b1\'"></img-select></td>'
+                . '<td class="Bimg"><img-select :id="\'mcard'.$i.'_b2\'"></img-select></td>'
+                . '<td class="Bimg"><img-select :id="\'mcard'.$i.'_b3\'"></img-select></td>'
             . '</tr>'
             . '<tr>'
                 . '<td>'
