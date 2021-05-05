@@ -72,9 +72,13 @@
             </form>     
         </main>
         
-        <script type="text/javascript" src="../js/Hobby_1/Hobby_1_2_custom.js"></script>
-        <script type="text/javascript" src="../js/Hobby_1/sort.js"></script>
+        <!-- <script type="text/javascript" src="../js/Hobby_1/Hobby_1_2_custom.js"></script> -->
+        
+        <!-- <script src="../lib/vue.js"></script>  -->
+        <!-- <script src="../js/Hobby_1/select-lv_vue.js"></script> -->
         <script src="../lib/vue.js"></script> 
-        <script src="../js/Hobby_1/select-lv_vue.js"></script>
+        <script src="https://unpkg.com/http-vue-loader"></script>
+        <script src="../js/Hobby_1/sort.js"></script>
+        <script src="../js/Hobby_1/Hobby_1_2_custom.js"></script>
     </body>
 </html>
