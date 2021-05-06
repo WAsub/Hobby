@@ -107,7 +107,7 @@ class Hobby_1_4_addM{
             . '<tr>'
                 . '<th>属性</th>'
                 . '<td colspan="3">'
-
+                . '<radio-element :id="\'mcard'.$i.'_m'.$M.'_element\'" :name="\'mcard'.$i.'_m'.$M.'_element\'"></radio-element>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
