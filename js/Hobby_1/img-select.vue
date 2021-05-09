@@ -25,6 +25,10 @@ module.exports = {
 		}
 	},
 	methods: {
+		initialize(){
+			this.preview = "../img/Hobby_1/none.jpg";
+			this.buddy = "";
+		},
 		getIcon(value) {
 			this.preview = '../img/Hobby_1/Another/'+value;
 			this.buddy = value.substr(0, 2);
