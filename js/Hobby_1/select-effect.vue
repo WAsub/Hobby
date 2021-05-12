@@ -16,7 +16,7 @@
 			:disabled="true" 
 			ref="ef3"></select-own>
         <span class="duoimg">
-			<img-select :id="id_name[3]" ref="ef4"></img-select>
+			<img-select :id_name="id_name[3]" ref="ef4"></img-select>
 			<div :class="this.class"></div>
 		</span>
 	</div>

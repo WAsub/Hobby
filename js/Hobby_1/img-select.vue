@@ -1,7 +1,7 @@
 <template>
 	<div @mouseenter="childShow(true)" @mouseleave="childShow(false)">
 		<img :src="preview" width="30" height="30">
-		<input type="hidden" :id="this.id" :value="buddy">
+		<input type="hidden" :id="this.id_name" :name="this.id_name" :value="buddy">
 		<choice-modal-img 
 			:class="this.class" 
 			@catch-icon="getIcon"></choice-modal-img>
@@ -14,7 +14,7 @@ module.exports = {
 		'choice-modal-img': httpVueLoader('http://haveabook.php.xdomain.jp/editing/js/Hobby_1/choice-modal-img.vue'),
   	},
 	props: {
-		id: {default:"myselectimg"},
+		id_name: {default:"myselectimg"},
 		defaImg: {default:"../img/Hobby_1/none.jpg"}
 	},
 	data: function () {
