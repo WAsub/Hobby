@@ -15,10 +15,6 @@
             :op="'opAddM_effect3'" 
 			:disabled="true" 
 			ref="ef3"></select-own>
-        <span class="duoimg">
-			<img-select :id_name="id_name[3]" ref="ef4"></img-select>
-			<div :class="this.class"></div>
-		</span>
 	</div>
 </template>
  
@@ -33,15 +29,14 @@ module.exports = {
 	},
 	data: function () {
 		return {
-			selected: 'nN',
-			class: "hide",
+			selected: "",
 			options:{
 				opAddM_effect1: [
-					{key: "なし", value: "nN"},
+					{key: "なし", value: ""},
 					{key: "ATK UP", value: "au"}, {key: "ﾀﾞﾒｰｼﾞ UP", value: "du"}, {key: "ATK DOWN", value: "ad"}, {key: "ﾀﾞﾒｰｼﾞ DOWN", value: "dd"},
 					{key: "HP回復", value: "re"},　{key: "HP継続回復", value: "cr"}, {key: "被ﾀﾞﾒｰｼﾞ DOWN", value: "td"}, 
 					{key: "火ﾀﾞﾒｰｼﾞ UP", value: "fu"}, {key: "木ﾀﾞﾒｰｼﾞ UP", value: "tu"}, {key: "水ﾀﾞﾒｰｼﾞ UP", value: "wu"}, {key: "無ﾀﾞﾒｰｼﾞ UP", value: "nu"},
-					{key: "回避", value: "ev"}, {key: "呪い", value: "cu"}, {key: "デュオ魔法", value: ""}
+					{key: "回避", value: "ev"}, {key: "呪い", value: "cu"}
 				],
 			}
 		}
@@ -52,20 +47,11 @@ module.exports = {
 			switch(op){
 				case "opAddM_effect1":
 					switch(value){
-						case "nN":
-							this.class = "hide";
-							this.$refs.ef4.initialize();
-							this.$refs.ef2.chengeDisabled(true);
-							this.$refs.ef3.chengeDisabled(true);
-							break;
 						case "":
-							this.class = "show";
 							this.$refs.ef2.chengeDisabled(true);
 							this.$refs.ef3.chengeDisabled(true);
 							break;
 						default:
-							this.class = "hide";
-							this.$refs.ef4.initialize();
 							this.$refs.ef2.chengeDisabled(false);
 							this.$refs.ef3.chengeDisabled(false);
 					}

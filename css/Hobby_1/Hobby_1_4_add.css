@@ -51,8 +51,27 @@ td{
     height: 70px;
     vertical-align: top;
 }
-.duoimg{
-    position: relative;
+#Btns{
+    position: fixed;
+    width: 80%;
+    min-width: 800px;
     height: 30px;
-	width: 30px;
+}
+h3{
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    background: #d8e697;
+    border: 2px solid #e6b422; 
+}
+.file{
+    width: 100%;
+    display: flex;
+}
+.no{
+    margin: auto 45px 20px auto;
+    display: block;
+}
+.no input{
+    width: 40px;
 }

@@ -63,7 +63,7 @@
                         <br>
                         <label><input type="checkbox" class="filter2" value="0" onclick="sort(this)">Nomal</label>
                         <label><input type="checkbox" class="filter2" value="1" onclick="sort(this)">Fire</label>
-                        <   label><input type="checkbox" class="filter2" value="2" onclick="sort(this)">Tree</label>
+                        <label><input type="checkbox" class="filter2" value="2" onclick="sort(this)">Tree</label>
                         <label><input type="checkbox" class="filter2" value="3" onclick="sort(this)">Water</label>
                         <br>
                         <label><input type="checkbox" class="filter3" value="0" onclick="sort(this)">持ってるやつ</label>
@@ -71,11 +71,7 @@
                 </div>
             </form>     
         </main>
-        
-        <!-- <script type="text/javascript" src="../js/Hobby_1/Hobby_1_2_custom.js"></script> -->
-        
-        <!-- <script src="../lib/vue.js"></script>  -->
-        <!-- <script src="../js/Hobby_1/select-lv_vue.js"></script> -->
+       
         <script src="../lib/vue.js"></script> 
         <script src="https://unpkg.com/http-vue-loader"></script>
         <script src="../js/Hobby_1/sort.js"></script>

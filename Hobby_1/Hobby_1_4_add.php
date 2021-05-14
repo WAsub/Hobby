@@ -3,7 +3,10 @@
     require_once('Hobby_1_4_addM.php');
     $M = new Hobby_1_4_addM();
     $loginUser = $M->login(); // ログイン状況を把握
-	
+    $msgs = $M->DBinsert();
+	$msg = $msgs['cardData0'];
+    // $aa = $M->DataPOST();
+    
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +25,13 @@
         <main>
             <br><br><br>
             <h2><?= $loginUser ?></h2><!-- ユーザ名表示 -->
-            <form action="Hobby_1_4_add.php" method="post">
+            <form action="Hobby_1_4_add.php" method="post" enctype="multipart/form-data">
+                <div id="Btns">
+                    <h3>
+                        <button type="submit" name="submit" value="更新">更新</button>
+                        <?= $msg ?><!-- アップデート完了メッセージ -->
+                    </h3>
+                </div>
                 <div class="contents">
                     <div id="con"><!-- カード表示 -->
                         <?php $M->addCard(); ?>
@@ -30,7 +39,7 @@
                 </div>
             </form>               
         </main>
-        
+
         <script src="../lib/vue.js"></script> 
         <script src="https://unpkg.com/http-vue-loader"></script>
         <script src="../js/Hobby_1/Hobby_1_4_add.js"></script>

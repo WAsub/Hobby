@@ -219,7 +219,7 @@ class Hobby_1_2_customM{
     }
     
     function updateCard(){ // カードデータを表示
-        $Dormitory = array("","Heartslabyul","Savanaclaw","Octavinelle","Scarabia","Pomefiore","Ignihyde","Diasomnia");        
+        $Dormitory = array("","Heartslabyul","Savanaclaw","Octavinelle","Scarabia","Pomefiore","Ignihyde","Diasomnia","Ramshackle");        
         for($i = 0; $i < count($this->cardData['cdno']); $i++){
             print '<div class="mcards">';
             /** カードの写真 */
