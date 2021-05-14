@@ -135,7 +135,7 @@ class Hobby_1_1_homeM{
     }
             
     function printCard(){
-        $Dormitory = array("","Heartslabyul","Savanaclaw","Octavinelle","Scarabia","Pomefiore","Ignihyde","Diasomnia");
+        $Dormitory = array("","Heartslabyul","Savanaclaw","Octavinelle","Scarabia","Pomefiore","Ignihyde","Diasomnia","Ramshackle");
         for($i = 0; $i < count($this->cdno); $i++){
             print '<div id="NO'.$this->cdno[$i].'" class="mcards">';
             print     '<img id="mcard'.$i.'" src="../img/Hobby_1/'.$Dormitory[(int)$this->chno[$i]/10].'/'.$this->img[$i].'" alt="'.$this->chno[$i].'" width="70.5" height="74.7" onclick="clickCloseModal(this)">';

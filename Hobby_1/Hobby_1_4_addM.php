@@ -81,6 +81,9 @@ class Hobby_1_4_addM{
             $maxno++;
             $Dormitory = array("","Heartslabyul","Savanaclaw","Octavinelle","Scarabia","Pomefiore","Ignihyde","Diasomnia","Ramshackle");
             for($i = 0; $i < 4; $i++){
+                if($this->addData['mcard'.$i.'_chno'] == ""){
+                    continue;
+                }
                 if($this->addData['mcard'.$i.'_cdno'] == ""){
                     $this->addData['mcard'.$i.'_cdno'] = $maxno;
                     $maxno++;
@@ -162,9 +165,9 @@ class Hobby_1_4_addM{
                             }
                             break;
                         case 2:
-                            $mlv = 5; $b1lv = 5;
-                            $b2lv = $this->addData['mcard'.$i.'_b2'] == "" ? 0 : 5;
-                            $b3lv = $this->addData['mcard'.$i.'_b3'] == "" ? 0 : 5;
+                            $mlv = 5; $b1lv = 10;
+                            $b2lv = $this->addData['mcard'.$i.'_b2'] == "" ? 0 : 10;
+                            $b3lv = $this->addData['mcard'.$i.'_b3'] == "" ? 0 : 10;
                             $stmt = mysqli_prepare($conn, $sql[$j]);
                             mysqli_stmt_bind_param($stmt, 'iiiiiiiii', 
                                 $this->addData['mcard'.$i.'_cdno'], $this->addData['mcard'.$i.'_lv_middle'], $this->addData['mcard'.$i.'_hp_middle'], $this->addData['mcard'.$i.'_atk_middle'],
