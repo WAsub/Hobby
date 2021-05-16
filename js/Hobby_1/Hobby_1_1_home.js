@@ -36,7 +36,8 @@ function apply(fromId, toID){
         41: '41.jpg', 42: '42.jpg',
         51: '51.jpg', 52: '52.jpg', 53: '53.jpg',
         61: '61.jpg', 62: '62.jpg',
-        71: '71.jpg', 72: '72.jpg', 73: '73.jpg', 74: '74.jpg'
+        71: '71.jpg', 72: '72.jpg', 73: '73.jpg', 74: '74.jpg',
+        82: '82.jpg'
     };
     var Bty = {
         H: 'H', A: 'A',
@@ -82,6 +83,8 @@ function apply(fromId, toID){
     getElByID(toID + "_b1lv").value = getElByID(fromId + "_b1lv").value;
     getElByID(toID + "_b2lv").value = getElByID(fromId + "_b2lv").value;
     getElByID(toID + "_b3lv").value = getElByID(fromId + "_b3lv").value;
+    getElByID(toID + "_hpmiddle").value = getElByID(fromId + "_hpmiddle").value;
+    getElByID(toID + "_atkmiddle").value = getElByID(fromId + "_atkmiddle").value;
     getElByID(toID + "_hpmax").value = getElByID(fromId + "_hpmax").value;
     getElByID(toID + "_atkmax").value = getElByID(fromId + "_atkmax").value;
     getElByID(toID + "_budy1").style.backgroundImage = 'url(../img/Hobby_1/Another/'+ Bimg[getElByID(fromId + "_b1").value] +')';
@@ -91,17 +94,17 @@ function apply(fromId, toID){
     getElByID(toID + "_budy2").src = '../img/Hobby_1/RED.png';
     getElByID(toID + "_budy3").src = '../img/Hobby_1/RED.png';
     
-    for(var i = 1; i <= 5; i++){//max
-        if(getElByID("card"+i+"_max").checked){
-            getElByID("card"+i+"_hp").value = getElByID("card"+i+"_hpmax").value;
-            getElByID("card"+i+"_atk").value = getElByID("card"+i+"_atkmax").value;
-            getElByID("card"+i+"_m1lv").value = 10;
-            getElByID("card"+i+"_m2lv").value = 10;
-            getElByID("card"+i+"_b1lv").value = 10;
-            getElByID("card"+i+"_b2lv").value = 10;
-            getElByID("card"+i+"_b3lv").value = 10;
-        }
-    }
+    // for(var i = 1; i <= 5; i++){//max
+    //     if(getElByID("card"+i+"_max").checked){
+    //         getElByID("card"+i+"_hp").value = getElByID("card"+i+"_hpmax").value;
+    //         getElByID("card"+i+"_atk").value = getElByID("card"+i+"_atkmax").value;
+    //         getElByID("card"+i+"_m1lv").value = 10;
+    //         getElByID("card"+i+"_m2lv").value = 10;
+    //         getElByID("card"+i+"_b1lv").value = 10;
+    //         getElByID("card"+i+"_b2lv").value = 10;
+    //         getElByID("card"+i+"_b3lv").value = 10;
+    //     }
+    // }
 }
 /******************************************************************************/
 /** ソートモーダル開閉 */
@@ -116,7 +119,7 @@ function clickCloseSortModal(){
 /******************************************************************************/
 /** チェックボックス"最大値" */
 function clickMAX(obj){
-        if(obj.checked){
+        if(obj.className == "max"){
             getElByID(obj.value+"_hp").value = getElByID(obj.value+"_hpmax").value;
             getElByID(obj.value+"_atk").value = getElByID(obj.value+"_atkmax").value;
             getElByID(obj.value+"_m1lv").value = 10;
@@ -125,17 +128,13 @@ function clickMAX(obj){
             getElByID(obj.value+"_b2lv").value = 10;
             getElByID(obj.value+"_b3lv").value = 10;
         }else{
-            var no = getElByID(obj.value+"_cdno").value;            
-            if(no != "0"){
-                var el = getElByID("NO"+no).children;
-                getElByID(obj.value+"_hp").value = el[4].value;
-                getElByID(obj.value+"_atk").value = el[5].value;
-                getElByID(obj.value+"_m1lv").value = el[18].value;
-                getElByID(obj.value+"_m2lv").value = el[19].value;
-                getElByID(obj.value+"_b1lv").value = el[26].value;
-                getElByID(obj.value+"_b2lv").value = el[27].value;
-                getElByID(obj.value+"_b3lv").value = el[28].value;
-            }            
+            getElByID(obj.value+"_hp").value = getElByID(obj.value+"_hpmiddle").value;
+            getElByID(obj.value+"_atk").value = getElByID(obj.value+"_atkmiddle").value;
+            getElByID(obj.value+"_m1lv").value = 5;
+            getElByID(obj.value+"_m2lv").value = 5;
+            getElByID(obj.value+"_b1lv").value = 10;
+            getElByID(obj.value+"_b2lv").value = 10;
+            getElByID(obj.value+"_b3lv").value = 10;      
         }
     changeMbufty();
     changeValue();
@@ -145,17 +144,17 @@ function clickMAX(obj){
 }
 /** MLv操作のプルダウンリスト */
 function clickMLvChange(){
-    for(var i = 1; i <= 5; i++){//max
-        if(getElByID("card"+i+"_max").checked){
-            getElByID("card"+i+"_hp").value = getElByID("card"+i+"_hpmax").value;
-            getElByID("card"+i+"_atk").value = getElByID("card"+i+"_atkmax").value;
-            getElByID("card"+i+"_m1lv").value = 10;
-            getElByID("card"+i+"_m2lv").value = 10;
-            getElByID("card"+i+"_b1lv").value = 10;
-            getElByID("card"+i+"_b2lv").value = 10;
-            getElByID("card"+i+"_b3lv").value = 10;
-        }
-    }
+    // for(var i = 1; i <= 5; i++){//max
+    //     if(getElByID("card"+i+"_max").checked){
+    //         getElByID("card"+i+"_hp").value = getElByID("card"+i+"_hpmax").value;
+    //         getElByID("card"+i+"_atk").value = getElByID("card"+i+"_atkmax").value;
+    //         getElByID("card"+i+"_m1lv").value = 10;
+    //         getElByID("card"+i+"_m2lv").value = 10;
+    //         getElByID("card"+i+"_b1lv").value = 10;
+    //         getElByID("card"+i+"_b2lv").value = 10;
+    //         getElByID("card"+i+"_b3lv").value = 10;
+    //     }
+    // }
     changeMbufty();
     changeValue();
     damage();
@@ -217,6 +216,8 @@ function sort(obj){
             cd_b1lv : getElByID("mcard"+i+"_b1lv").value ,
             cd_b2lv : getElByID("mcard"+i+"_b2lv").value ,
             cd_b3lv : getElByID("mcard"+i+"_b3lv").value ,
+            cd_hpmiddle : parseInt(getElByID("mcard"+i+"_hpmiddle").value) ,
+            cd_atkmiddle : parseInt(getElByID("mcard"+i+"_atkmiddle").value) ,
             cd_hpmax : parseInt(getElByID("mcard"+i+"_hpmax").value) ,
             cd_atkmax : parseInt(getElByID("mcard"+i+"_atkmax").value) ,
             cd_m1max : getElByID("mcard"+i+"_m1max").value ,
@@ -261,6 +262,8 @@ function sort(obj){
         getElByID("mcard"+i+"_b1lv").value = data[i]["cd_b1lv"];
         getElByID("mcard"+i+"_b2lv").value = data[i]["cd_b2lv"];
         getElByID("mcard"+i+"_b3lv").value = data[i]["cd_b3lv"];
+        getElByID("mcard"+i+"_hpmiddle").value = data[i]["cd_hpmiddle"];
+        getElByID("mcard"+i+"_atkmiddle").value = data[i]["cd_atkmiddle"];
         getElByID("mcard"+i+"_hpmax").value = data[i]["cd_hpmax"];
         getElByID("mcard"+i+"_atkmax").value = data[i]["cd_atkmax"];
         getElByID("mcard"+i+"_m1max").value = data[i]["cd_m1max"];

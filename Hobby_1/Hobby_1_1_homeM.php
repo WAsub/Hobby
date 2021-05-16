@@ -21,6 +21,7 @@ class Hobby_1_1_homeM{
     private $b1 = array();    private $b2 = array();    private $b3 = array();//無ければ0
     private $b1type = array();    private $b2type = array();    private $b3type = array();//無ければ0
     private $b1lv = array();    private $b2lv = array();    private $b3lv = array();//無ければ0
+    private $hpmiddle = array();    private $atkmiddle = array();
     private $hpmax = array();    private $atkmax = array();
     private $m1max = array();
     private $m2max = array();
@@ -60,16 +61,18 @@ class Hobby_1_1_homeM{
         mysqli_set_charset($conn, 'utf8');
         
         //SQL文の作成
-        $sql = "SELECT d1.cdno, d1.chno, d1.cimg, d2.lv, d2.hp, d2.atk, ";
-        $sql.= "d1.m1_1, d1.m2_1, d1.m1buf_1, d1.m2buf_1, ";
-        $sql.= "d1.m1_5, d1.m2_5, d1.m1buf_5, d1.m2buf_5, ";
-        $sql.= "d1.m1_10, d1.m2_10, d1.m1buf_10, d1.m2buf_10, ";
-        $sql.= "d2.m1lv, d2.m2lv, ";
-        $sql.= "d1.b1, d1.b2, d1.b3, d1.b1type, d1.b2type, d1.b3type, d2.b1lv, d2.b2lv, d2.b3lv, ";
-        $sql.= "d3.hp, d3.atk ";
-        $sql.= "FROM H1_1_CardData AS d1 INNER JOIN ".$_SESSION['myTB']." AS d2 ON d1.cdno = d2.cdno ";
-        $sql.=                          "INNER JOIN H1_2_DefaultDataMax AS d3 ON d2.cdno = d3.cdno ";
-        $sql.= "ORDER BY d1.cdno ASC";
+        $sql = "SELECT d1.cdno, d1.chno, d1.cimg, d2.lv, d2.hp, d2.atk, 
+        d1.m1_1, d1.m2_1, d1.m1buf_1, d1.m2buf_1, 
+        d1.m1_5, d1.m2_5, d1.m1buf_5, d1.m2buf_5, 
+        d1.m1_10, d1.m2_10, d1.m1buf_10, d1.m2buf_10, 
+        d2.m1lv, d2.m2lv, 
+        d1.b1, d1.b2, d1.b3, d1.b1type, d1.b2type, d1.b3type, d2.b1lv, d2.b2lv, d2.b3lv, 
+        d4.hp, d4.atk, 
+        d3.hp, d3.atk 
+        FROM H1_1_CardData AS d1 INNER JOIN ".$_SESSION['myTB']." AS d2 ON d1.cdno = d2.cdno 
+        INNER JOIN H1_2_DefaultDataMax AS d3 ON d2.cdno = d3.cdno 
+        INNER JOIN H1_2_DefaultDataMiddle AS d4 ON d3.cdno = d4.cdno 
+        ORDER BY d1.cdno ASC";
         
         //ステートメントン実行準備
         $stmt = mysqli_prepare($conn, $sql);
@@ -88,7 +91,7 @@ class Hobby_1_1_homeM{
                                            $m1_10, $m2_10, $m1b_10, $m2b_10,
                                            $m1lvl, $m2lvl,
                                            $bd1, $bd2, $bd3, $b1T, $b2T, $b3T, $b1lvl, $b2lvl, $b3lvl,
-                                           $maxhp, $maxatk);
+                                           $middlehp, $middleatk, $maxhp, $maxatk);
             while(mysqli_stmt_fetch($stmt)){
                 $this->cdno[$i] = $cdN;
                 $this->chno[$i] = $chN;
@@ -119,6 +122,8 @@ class Hobby_1_1_homeM{
                 $this->b1lv[$i] = $b1lvl;
                 $this->b2lv[$i] = $b2lvl;
                 $this->b3lv[$i] = $b3lvl;
+                $this->hpmiddle[$i] = $middlehp;
+                $this->atkmiddle[$i] = $middleatk;
                 $this->hpmax[$i] = $maxhp;
                 $this->atkmax[$i] = $maxatk;
                 $this->m1max[$i] = $m1_10;
@@ -170,6 +175,8 @@ class Hobby_1_1_homeM{
             print     '<input id="mcard'.$i.'_b1lv" type="hidden" value="'.$this->b1lv[$i].'">';
             print     '<input id="mcard'.$i.'_b2lv" type="hidden" value="'.$this->b2lv[$i].'">';
             print     '<input id="mcard'.$i.'_b3lv" type="hidden" value="'.$this->b3lv[$i].'">';
+            print     '<input id="mcard'.$i.'_hpmiddle" type="hidden" value="'.$this->hpmiddle[$i].'">';
+            print     '<input id="mcard'.$i.'_atkmiddle" type="hidden" value="'.$this->atkmiddle[$i].'">';
             print     '<input id="mcard'.$i.'_hpmax" type="hidden" value="'.$this->hpmax[$i].'">';
             print     '<input id="mcard'.$i.'_atkmax" type="hidden" value="'.$this->atkmax[$i].'">';
             print     '<input id="mcard'.$i.'_m1max" type="hidden" value="'.$this->m1max[$i].'">';
