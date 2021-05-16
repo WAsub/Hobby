@@ -163,17 +163,17 @@ function clickMLvChange(){
 }
 /** バフデバフのチェックボックス切り替え */
 function clickChange(){
-    for(var i = 1; i <= 5; i++){//max
-        if(getElByID("card"+i+"_max").checked){
-            getElByID("card"+i+"_hp").value = getElByID("card"+i+"_hpmax").value;
-            getElByID("card"+i+"_atk").value = getElByID("card"+i+"_atkmax").value;
-            getElByID("card"+i+"_m1lv").value = 10;
-            getElByID("card"+i+"_m2lv").value = 10;
-            getElByID("card"+i+"_b1lv").value = 10;
-            getElByID("card"+i+"_b2lv").value = 10;
-            getElByID("card"+i+"_b3lv").value = 10;
-        }
-    }
+    // for(var i = 1; i <= 5; i++){//max
+    //     if(getElByID("card"+i+"_max").checked){
+    //         getElByID("card"+i+"_hp").value = getElByID("card"+i+"_hpmax").value;
+    //         getElByID("card"+i+"_atk").value = getElByID("card"+i+"_atkmax").value;
+    //         getElByID("card"+i+"_m1lv").value = 10;
+    //         getElByID("card"+i+"_m2lv").value = 10;
+    //         getElByID("card"+i+"_b1lv").value = 10;
+    //         getElByID("card"+i+"_b2lv").value = 10;
+    //         getElByID("card"+i+"_b3lv").value = 10;
+    //     }
+    // }
     changeValue();
     damage();
     totalD();
