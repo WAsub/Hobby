@@ -267,7 +267,7 @@ class Hobby_1_2_customM{
                 . '<td>'
                 . '<select-own id="mcard'.$i.'_m1lv" name="mcard'.$i.'_m1lv" 
                     :initial="'.$this->cardData['m1lv'][$i].'" 
-                    :op="\'opMagic\'" '.$this->enabled().'></select-own>'
+                    :op="\'opLv\'" '.$this->enabled().'></select-own>'
                 . '</td>'
             . '</tr>'
             . '<tr>'
@@ -278,36 +278,48 @@ class Hobby_1_2_customM{
                 . '<td>'
                 . '<select-own id="mcard'.$i.'_m2lv" name="mcard'.$i.'_m2lv" 
                     :initial="'.$this->cardData['m2lv'][$i].'" 
-                    :op="\'opMagic\'" '.$this->enabled().'></select-own>'
+                    :op="\'opLv\'" '.$this->enabled().'></select-own>'
                 . '</td>'
             . '</tr>'
             . '</table>';
     }
     function statusBuddy($i){
-        print '<table border="0">'
-            . '<tr>'
-                . '<td><img id="mcard'.$i.'_b1" src="../img/Hobby_1/Another/'.$this->cardData['b1'][$i].'.jpg" alt="" width="30" height="30"></td>'
-                . '<td><img id="mcard'.$i.'_b2" '.$this->hide($this->cardData['b2'][$i]).' src="../img/Hobby_1/Another/'.$this->cardData['b2'][$i].'.jpg" alt="" width="30" height="30"></td>'
-                . '<td><img id="mcard'.$i.'_b3" '.$this->hide($this->cardData['b3'][$i]).' src="../img/Hobby_1/Another/'.$this->cardData['b3'][$i].'.jpg" alt="" width="30" height="30"></td>'
-            . '</tr>'
-            . '<tr>'
-                . '<td>'
-                . '<select-own id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" 
-                    :initial="'.$this->cardData['b1lv'][$i].'" 
-                    :op="\'opBuddy\'" '.$this->enabled().'></select-own>'
-                . '</td>'
-                . '<td>'
-                . '<select-own id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" 
-                    :initial="'.$this->cardData['b2lv'][$i].'" 
-                    :op="\'opBuddy\'" '.$this->enabled().'></select-own>'
-                . '</td>'
-                . '<td>'
-                . '<select-own id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" 
-                    :initial="'.$this->cardData['b3lv'][$i].'" 
-                    :op="\'opBuddy\'" '.$this->enabled().'></select-own>'
-                . '</td>'
-            . '</tr>'
-            . '</table>';
+        print '<table border="0">
+                <tr>
+                    <td><img id="mcard'.$i.'_b1" src="../img/Hobby_1/Another/'.$this->cardData['b1'][$i].'.jpg" alt="" width="30" height="30"></td>
+                    <td><img id="mcard'.$i.'_b2" '.$this->hide($this->cardData['b2'][$i]).' src="../img/Hobby_1/Another/'.$this->cardData['b2'][$i].'.jpg" alt="" width="30" height="30"></td>
+                    <td><img id="mcard'.$i.'_b3" '.$this->hide($this->cardData['b3'][$i]).' src="../img/Hobby_1/Another/'.$this->cardData['b3'][$i].'.jpg" alt="" width="30" height="30"></td>
+                </tr>
+                <tr>
+                    <td>
+                    <select-own id="mcard'.$i.'_b1lv" name="mcard'.$i.'_b1lv" 
+                        :initial="'.$this->cardData['b1lv'][$i].'" 
+                        :op="\'opLv\'" '.$this->enabled().'></select-own>
+                    </td>';
+        if($this->cardData['b2lv'][$i] != 0){
+            print  '<td>
+                    <select-own id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" 
+                        :initial="'.$this->cardData['b2lv'][$i].'" 
+                        :op="\'opLv\'" '.$this->enabled().'></select-own>
+                    </td>';
+        }else{
+            print  '<td>
+                        <input type="hidden" id="mcard'.$i.'_b2lv" name="mcard'.$i.'_b2lv" value="'.$this->cardData['b2lv'][$i].'">
+                    </td>';
+        }
+        if($this->cardData['b3lv'][$i] != 0){
+            print  '<td>
+                    <select-own id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" 
+                        :initial="'.$this->cardData['b3lv'][$i].'" 
+                        :op="\'opLv\'" '.$this->enabled().'></select-own>
+                    </td>';
+        }else{
+            print  '<td>
+                        <input type="hidden" id="mcard'.$i.'_b3lv" name="mcard'.$i.'_b3lv" value="'.$this->cardData['b3lv'][$i].'">
+                    </td>';
+        }
+        print  '</tr>
+               </table>';
     }
     function hide($b){
         if($b == 0){

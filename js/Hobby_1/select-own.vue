@@ -14,10 +14,9 @@ module.exports = {
 		disabled: {default: false}
 	},
 	data: function () {
-		var n = {card:[], m:[], b:[], addC: [{key: 1, value: 1}], addM_t:[]};
+		var n = {card:[], lv:[], addC: [{key: 1, value: 1}], addM_t:[]};
 		for(var i = 0; i <= 100; i++){ n['card'][i] = {key: i, value: i};}
-		for(var i = 1; i <= 10; i++){ n['m'][i-1] = {key: i, value: i};}
-		for(var i = 0; i <= 10; i++){ n['b'][i] = {key: i, value: i};}
+		for(var i = 1; i <= 10; i++){ n['lv'][i-1] = {key: i, value: i};}
 		for(var i = 2; i <= 5; i++){ n['addC'][i-1] = {key: i*20, value: i*20};}
 		for(var i = 1; i <= 2; i++){ n['addM_t'][i-1] = {key: i+"連", value: i};}
 		return {
@@ -25,8 +24,7 @@ module.exports = {
 			isDisabled: this.disabled,
 			options:{
 				opCard: n['card'],
-				opMagic: n['m'],
-				opBuddy: n['b'],
+				opLv: n['lv'],
 				opAddCard: n['addC'],
 				opAddM_timas: n['addM_t'],
 				opAddM_power: [{key: "弱", value: "S"}, {key: "強", value: "L"}],
